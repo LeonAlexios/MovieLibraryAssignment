@@ -1,7 +1,7 @@
 ﻿// Import necessary namespaces
-using System;
 using Microsoft.Extensions.DependencyInjection;
 using MovieLibrary.Services;
+using System;
 
 // Define the namespace for the current file
 namespace MovieLibrary

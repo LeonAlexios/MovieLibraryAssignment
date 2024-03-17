@@ -56,6 +56,7 @@ public class FileService : IFileService
                 while ((line = sr.ReadLine()) != null) // Read a new line at each iteration
                 {
                     // Process the line...
+                    Console.WriteLine(line);
                 }
             }
         }
@@ -72,14 +73,18 @@ public class FileService : IFileService
         try
         {
             // Rest of the code...
-
-            if (LowerCaseMovieTitles.Contains(movieTitle.ToLower()))
+            using (StreamWriter sw = new StreamWriter(_file))
             {
-                string genresString = string.Join("|", genres); // Note this is not complete
-                sw.WriteLine($"{movieId},{movieTitle},{genresString}");
+                string LowerCaseMovieTitles = "";
+                if (LowerCaseMovieTitles.Contains(movieTitle.ToLower()))
+                {
+                    string genresString = string.Join("|", genres); // Note this is not complete
+                    sw.WriteLine($"{movieId},{movieTitle},{genresString}");
+                }
             }
 
             _logger.Log(LogLevel.Information, $"Movie id {movieId} added");
+
         }
         catch (Exception ex)
         {

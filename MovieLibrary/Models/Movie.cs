@@ -10,5 +10,5 @@ namespace MovieLibrary.Models
         public string Title { get; set; }
         public string Genres { get; set; }
     }
-    
+
 }
